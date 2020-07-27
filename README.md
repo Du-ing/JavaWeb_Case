@@ -1,2 +1,2 @@
-# JavaWeb_Case
+# JavaWeb_Case By MVC
 A JavaWeb Project by Servlet,JSP,EL,JSTL...
