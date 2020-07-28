@@ -3,6 +3,7 @@ package duing.dao.impl;
 import duing.dao.UserDao;
 import duing.domain.User;
 import duing.util.JDBCUtils;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -25,7 +26,24 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User findUserByUsernameAndPassword(String username, String password) {
         String sql = "select * from user where username = ? and password = ?";
-        User user = template.queryForObject(sql,new BeanPropertyRowMapper<User>(User.class),username,password);
+        User user = null;
+        try {
+            user = template.queryForObject(sql,new BeanPropertyRowMapper<User>(User.class),username,password);
+        } catch (DataAccessException e) {
+            user = null;
+        }
         return user;
+    }
+
+    @Override
+    public void addUser(User user) {
+        String sql = "insert into user values(null,?,?,?,?,?,?,?,?)";
+        template.update(sql,
+                user.getName(),
+                user.getGender(),
+                user.getAge(),
+                user.getAddress(),
+                user.getQq(),
+                user.getEmail());
     }
 }

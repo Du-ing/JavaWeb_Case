@@ -17,7 +17,7 @@
   </script>
 </head>
 <body>
-<div align="center">${user.name}，欢迎您！</div>
+<div align="center">${admin.username}，欢迎您！</div>
 <div align="center">
   <a href="${pageContext.request.contextPath}/userListServlet" style="text-decoration:none;font-size:33px">查询所有用户信息</a>
 </div>
