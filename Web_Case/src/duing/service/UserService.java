@@ -14,5 +14,12 @@ public interface UserService {
      * @return
      */
     public List<User> findAll();
-    public User login(User user);
+
+    public void addUser(User user);
+
+    public void deleteUser(String id);
+
+    public User findUserById(String id);
+
+    public void updateUser(User user);
 }
