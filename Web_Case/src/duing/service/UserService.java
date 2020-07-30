@@ -1,5 +1,6 @@
 package duing.service;
 
+import duing.domain.PageBean;
 import duing.domain.User;
 
 import java.util.List;
@@ -22,4 +23,8 @@ public interface UserService {
     public User findUserById(String id);
 
     public void updateUser(User user);
+
+    public void delSelectedUser(String[] ids);
+
+    public PageBean<User> findUserByPage(String currentPage, String rows);
 }
