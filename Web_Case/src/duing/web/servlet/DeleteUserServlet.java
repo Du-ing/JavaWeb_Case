@@ -19,7 +19,7 @@ public class DeleteUserServlet extends HttpServlet {
         UserService service = new UserServiceImpl();
         service.deleteUser(id);
         //跳转
-        response.sendRedirect(request.getContextPath()+"/userListServlet");
+        response.sendRedirect(request.getContextPath()+"/findUserByPageServlet");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
