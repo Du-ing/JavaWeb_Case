@@ -7,6 +7,7 @@ import duing.domain.User;
 import duing.service.UserService;
 
 import java.util.List;
+import java.util.Map;
 
 public class UserServiceImpl implements UserService {
     private UserDao userDao = new UserDaoImpl();
@@ -46,7 +47,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public PageBean<User> findUserByPage(String _currentPage, String _rows) {
+    public PageBean<User> findUserByPage(String _currentPage, String _rows, Map<String, String[]> condition) {
         int currentPage = Integer.parseInt(_currentPage);
         int rows = Integer.parseInt(_rows);
 
@@ -56,11 +57,11 @@ public class UserServiceImpl implements UserService {
         pb.setCurrentPage(currentPage);
         pb.setRows(rows);
         //调用Dao查询所有记录数
-        int totalCount = userDao.findTotalCount();
+        int totalCount = userDao.findTotalCount(condition);
         pb.setTotalCount(totalCount);
         //调用Dao查询List
         int start = (currentPage - 1) * rows;//开始的记录索引
-        List<User> list = userDao.finByPage(start,rows);
+        List<User> list = userDao.finByPage(start,rows,condition);
         pb.setList(list);
         //计算总页码
         int totalPage = totalCount % rows == 0 ? totalCount/rows:totalCount/rows+1;
