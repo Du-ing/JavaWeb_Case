@@ -8,4 +8,4 @@ A JavaWeb Case by Servlet,JSP,EL,JSTLa and Filter
 5. delete selected users
 6. page query
 7. query by special conditions
-8. add filter to adentify
+8. add filter to identify
