@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
   <head>
@@ -40,18 +41,23 @@
 			<span>还没有账号？那还不快快<a href="${pageContext.request.contextPath}/regist.jsp">注册</a></span>
 		</div>
 
-		<div class="alert alert-warning alert-dismissible" role="alert">
-			<button type="button" class="close" data-dismiss="alert" >
-				<span>&times;</span></button>
-			<strong>${regist}</strong>
-		</div>
-		
-		<!-- 出错显示的信息框 -->
-	  	<div class="alert alert-warning alert-dismissible" role="alert">
-		  <button type="button" class="close" data-dismiss="alert" >
-		  	<span>&times;</span></button>
-		   <strong>${login_msg}</strong>
-		</div>
+        <c:if test="${regist != null}">
+            <div class="alert alert-warning alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" >
+                    <span>&times;</span></button>
+                <strong>${regist}</strong>
+            </div>
+        </c:if>
+
+        <c:if test="${login_msg != null}">
+        <!-- 出错显示的信息框 -->
+        <div class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" >
+                <span>&times;</span></button>
+            <strong>${login_msg}</strong>
+        </div>
+        </c:if>
+
   	</div>
   </body>
 </html>

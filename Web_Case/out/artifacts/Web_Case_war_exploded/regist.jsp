@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="zh-CN">
 <head>
@@ -49,12 +50,15 @@
         </div>
     </form>
 
-    <!-- 出错显示的信息框 -->
-    <div class="alert alert-warning alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" >
-            <span>&times;</span></button>
-        <strong>${regist_msg}</strong>
-    </div>
+    <c:if test="${regist_msg != null}">
+        <!-- 出错显示的信息框 -->
+        <div class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" >
+                <span>&times;</span></button>
+            <strong>${regist_msg}</strong>
+        </div>
+    </c:if>
+
 </div>
 </body>
 </html>
