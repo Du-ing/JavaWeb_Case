@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 基于JavaWeb的联系人管理系统
 ## 使用的技术：Servlet、Filter 、MYSQL和前端技术JSP、EL和JSTL等
 ## 使用的服务器：Tomcat
@@ -13,3 +14,16 @@
 9. 前端页面的美化
 （后面将本人写的教务处课表爬取的项目加入进去了）
 温馨提示：本项目纯属初学者学习使用，本人菜鸡程序员一个，希望能够和大佬们互相学习！
+=======
+# management system
+A JavaWeb Case by Servlet,JSP,EL,JSTLa and Filter
+## functions
+1. login admin
+2. add user
+3. delete user
+4. update user info
+5. delete selected users
+6. page query
+7. query by special conditions
+8. add filter to identify
+>>>>>>> 08545bd37474e75589c186bbcf3d70c11f9e9294
