@@ -21,12 +21,31 @@
             //设置其src属性，加时间戳
             vcode.src = "${pageContext.request.contextPath}/checkCodeServlet?time="+new Date().getTime();
         }
+        //检查是否输入
+        function check() {
+            var username = document.getElementById("user").value;
+            var password = document.getElementById("password").value;
+            var verifycode = document.getElementById("verifycode").value;
+            if(username === null || username === ""){
+                alert("不能有空哦！");
+                return false;
+            }
+            if(password === null || password === ""){
+                alert("不能有空哦！");
+                return false;
+            }
+            if(verifycode === null || verifycode === ""){
+                alert("不能有空哦！");
+                return false;
+            }
+            return true;
+        }
     </script>
 </head>
 <body>
 <div class="container" style="width: 400px;">
     <h3 style="text-align: center;">管理员注册</h3>
-    <form action="${pageContext.request.contextPath}/registAdminServlet" method="post">
+    <form action="${pageContext.request.contextPath}/registAdminServlet" method="post" onsubmit="check()">
         <div class="form-group">
             <label for="user">用户名：</label>
             <input type="text" name="username" class="form-control" id="user" placeholder="请输入用户名"/>

@@ -26,6 +26,9 @@
         td, th {
             text-align: center;
         }
+        body{
+            background-color: #f7e1b5;
+        }
     </style>
 
     <script>

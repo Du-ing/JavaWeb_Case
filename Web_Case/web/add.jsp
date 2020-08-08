@@ -20,6 +20,11 @@
     <script src="js/jquery-2.1.0.min.js"></script>
     <!-- 3. 导入bootstrap的js文件 -->
     <script src="js/bootstrap.min.js"></script>
+    <style type="text/css">
+        body{
+            background-color: #a6e1ec;
+        }
+    </style>
 </head>
 <body>
 <div class="container">

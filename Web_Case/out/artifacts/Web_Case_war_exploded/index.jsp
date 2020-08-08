@@ -5,21 +5,120 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
   <title>首页</title>
 
-  <!-- 1. 导入CSS的全局样式 -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <!-- 2. jQuery导入，建议使用1.9以上的版本 -->
-  <script src="js/jquery-2.1.0.min.js"></script>
-  <!-- 3. 导入bootstrap的js文件 -->
-  <script src="js/bootstrap.min.js"></script>
+  <!-- CSS样式 -->
+  <style type="text/css">
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      background-color: #e4b9b9;
+    }
+
+    .container {
+      text-align: center;
+      padding: 100px 0;
+    }
+
+    .btn {
+      background: none;
+      border: 0;
+      outline: 0;
+      color: aquamarine;
+      font-family: 'JetBrains Mono';
+      font-size: 20px;
+      cursor: pointer;
+      border: 2px solid aquamarine;
+      width: 250px;
+      height: 50px;
+      position: relative;
+    }
+
+    .btn label {
+      position: absolute;
+      left: 0;
+      top: 0;
+      line-height: 50px;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      background-color: rgb(51, 51, 51);
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      left: -2px;
+      top: -2px;
+      width: 0px;
+      height: 0;
+      z-index: 0;
+      background-color: brown;
+      transition: width .5s,height .5s;
+    }
+
+    .btn::after {
+      content: '';
+      position: absolute;
+      right: -2px;
+      bottom: -2px;
+      width: 0;
+      height: 0;
+      z-index: 0;
+      background-color: brown;
+      transition: width .5s,height .5s;
+    }
+
+    .btn:hover {
+      color: brown;
+    }
+
+    .btn:hover::before {
+      width: calc(100% + 4px);
+      height: calc(100% + 4px);
+    }
+
+    .btn:hover::after {
+      width: calc(100% + 4px);
+      height: calc(100% + 4px);
+    }
+
+    .title{
+      font-size: 50px;
+      color: #337ab7;
+    }
+  </style>
+
   <script type="text/javascript">
+    function fun_1() {
+      window.location.href = "${pageContext.request.contextPath}/findUserByPageServlet";
+    }
+    function fun_2() {
+      window.location.href = "http://duing.site:8080/crawler/";
+    }
   </script>
 </head>
 <body>
-<div align="center">${admin.username}，欢迎您！</div>
-<div align="center">
-  <a href="${pageContext.request.contextPath}/findUserByPageServlet" style="text-decoration:none;font-size:33px">查询所有人员信息</a>
-</div>
+  <div align="center" class="title">${admin.username}，欢迎您！</div>
+
+  <div class="container">
+    <button class="btn" onclick="fun_1()">
+      <label>查看所有联系人</label>
+    </button>
+  </div>
+
+  <div class="container">
+    <button class="btn" onclick="fun_2()">
+      <label>课表系统</label>
+    </button>
+  </div>
 </body>
 </html>

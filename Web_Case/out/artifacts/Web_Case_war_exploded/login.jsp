@@ -15,12 +15,23 @@
     <!-- 3. 导入bootstrap的js文件 -->
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript">
+        function check() {
+            var username = document.getElementById("user").value;
+            var password = document.getElementById("password").value;
+            if(username === null || username === ""){
+                return false;
+            }
+            if(password === null || password === ""){
+                return false;
+            }
+            return true;
+        }
     </script>
   </head>
   <body>
   	<div class="container" style="width: 400px;">
   		<h3 style="text-align: center;">管理员登录</h3>
-        <form action="${pageContext.request.contextPath}/loginServlet" method="post">
+        <form action="${pageContext.request.contextPath}/loginServlet" method="post" onsubmit="check()">
 	      <div class="form-group">
 	        <label for="user">用户名：</label>
 	        <input type="text" name="login_username" class="form-control" id="user" placeholder="请输入用户名"/>
@@ -32,7 +43,7 @@
 	      </div>
 	      <hr/>
 	      <div class="form-group" style="text-align: center;">
-	        <input class="btn btn btn-primary" type="submit" value="登录">
+	        <input class="btn btn btn-primary" type="submit" value="登录"/>
 	       </div>
 	  	</form>
 
